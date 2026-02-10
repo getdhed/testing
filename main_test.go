@@ -102,3 +102,26 @@ func TestStringsTrimSpace(t *testing.T) {
 		})
 	}
 }
+func BenchmarkSortInts(b *testing.B) {
+
+	base := []int{4, 1, 2, 45, 623, 2}
+	data := append([]int(nil), base...)
+
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+
+		sort.Ints(data)
+		data = append([]int(nil), base...)
+	}
+}
+func BenchmarkSortFloat64s(b *testing.B) {
+	base := []float64{4, 1, 2, 45, 623, 2}
+	data := append([]float64(nil), base...)
+
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		sort.Float64s(data)
+
+		data = append([]float64(nil), base...)
+	}
+}
