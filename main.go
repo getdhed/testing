@@ -24,10 +24,13 @@ func NewGeom(x1, x2, y1, y2 float64) *Geom {
 	}
 }
 func (g *Geom) CalculateDistance() float64 {
+
 	return math.Sqrt(math.Pow(g.X2-g.X1, 2) + math.Pow(g.Y2-g.Y1, 2))
+	
 }
 
 func main() {
+
 	g := NewGeom(5, 5, 10, 15)
 	fmt.Println(g.CalculateDistance())
 
